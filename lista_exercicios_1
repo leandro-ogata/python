@@ -1,0 +1,79 @@
+
+1) Leia o nome e 4 notas de um aluno. As notas deverão ser armazenadas em uma lista. No final, mostre o nome do aluno, suas notas, sua média com uma casa decimal e se ele está aprovado ou reprovado
+
+nome = input("Digite o nome do aluno: ")
+notas = []
+
+for i in range(4):
+  nota=float(input("Digite sua nota: "))
+  notas.append(nota)
+
+media = sum(notas)/len(notas)
+6
+if media>=6:
+  print("Aprovado")
+else:
+  print("Reprvado")
+
+print(f'o aluno {nome} obteve média {media:.1f}')
+
+2) Faça um programa que armazene os dias da semana em uma tupla. Em seguida, o programa deve pedir um número de 1 a 7 pelo teclado e imprimir o dia da semana correspondente
+
+dias = ("Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado")
+
+num = int(input("Digite um número de 1 a 7: "))
+
+if 1 >= num <= 7:
+    print(f"O dia da semana correspondente é: {dias[num - 1]}")
+else:
+    print("Número inválido. Digite um número de 1 a 7")
+
+3) Escreva um programa que armazene 5 temperaturas de uma semana (segunda a sexta), em uma lista e no final mostre a média dessas temperaturas. 
+O programa deverá mostra de qual dia da semana está sendo coletada a temperatura, para isso, os dias da semana deverão estar armazenados em uma tupla e buscados dela para mostrar na tela.
+
+dias = ('segunda', 'terça', 'quarta', 'quinta', 'sexta')
+temp = []
+
+for i in range(5):
+  temperatura = float(input(f'digite a temperatura de: {dias[i]}'))
+  temp.append(temperatura)
+media = sum(temp) / len(temp)
+
+print(f'a média das temperaturas é {media} ')
+
+4) Crie uma tupla com os 10 primeiros colocados do campeonato paulista em ordem de colocação, depois mostre:
+- os 3 primeiros colocados 
+- os 3 ultimos colocados 
+- os times em ordem alfabética 
+- a posição do Bragantino
+
+times = ("Palmeiras","Santos","Bragantino","São Paulo","Novorizontino","São Bernarndo","Corinthians","Ponte Preta","Guarani","Portuguesa")
+times [:3]
+times [-3:]
+sorted(times)
+print(f'O Bragantino se encontra na {times.index("Bragantino")+1} posição')
+
+5) Um professor possui uma pequena turma de 5 alunos. A esses alunos foram aplicadas duas provas (p1 e p2). O professor gostaria de um programa onde ele cadastrasse as notas das duas provas e tivesse como resultado a média aritmética 
+da turma nas duas provas e ainda em qual das provas a turma teve melhor desempenho. Com suas habilidades de programador, consegue ajudá-lo?
+
+def calcular_media(nota_p1, nota_p2):
+  media_p1 = sum(nota_p1) / len(nota_p1)
+  media_p2 = sum(nota_p2) / len(nota_p2)
+
+
+notas_p1 = []
+notas_p2 = []
+
+for i in range(5):
+    nota_p1 = float(input(f"Digite a nota da prova 1 do aluno {i+1}: "))
+    nota_p2 = float(input(f"Digite a nota da prova 2 do aluno {i+1}: "))
+    notas_p1.append(nota_p1)
+    notas_p2.append(nota_p2)
+
+print(f"A média da turma na prova 1 é: {media_p1}")
+print(f"A média da turma na prova 2 é: {media_p2}")
+
+if media_p1 > media_p2:
+    print("A turma teve melhor desempenho na prova 1")
+else:
+    print("A turma teve melhor desempenho na prova 2")
