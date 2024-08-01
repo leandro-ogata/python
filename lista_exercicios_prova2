@@ -1,0 +1,48 @@
+1) Utilizando listas elabore um programa que faça 5 perguntas para uma pessoa sobre um crime. As perguntas são:
+• "Telefonou para a vítima?"
+• "Esteve no local do crime?"
+• "Mora perto da vítima?"
+• "Devia para a vítima?"
+• "Já trabalhou com a vítima?"
+O programa deve no final emitir uma classificação sobre a participação da pessoa no crime. Se a pessoa responder positivamente a 2 questões ela deve ser classificada como "Suspeita", 
+entre 3 e 4 como "Cúmplice" e 5 como "Assassino". Caso contrário, ele será classificado como "Inocente". As perguntas deverão ser cadastradas em uma lista.
+
+perguntas = ["Telefonou para a vítima?", "Esteve no local do crime?", "Mora perto da vítima?", "Devia para a vítima?", "Já trabalhou com a vítima?" ]
+
+resposta_sim = 0
+
+for pergunta in perguntas:
+  resposta = input(pergunta + ("sim ou nao: "))
+  if resposta == "sim":
+    resposta_sim +=1
+
+if resposta_sim == 2:
+  print("Suspeita")
+elif 3 <= resposta_sim <= 4:
+   print("Cumplice")
+elif resposta_sim == 5:
+   print("Assassino")
+else:
+  print("Inocente")
+
+2) Considere o seguinte dicionário:
+estoque = {"tomate": [1000, 2.30], "alface": [500, 0.45], "batata": [2000, 1.20], "feijão": [100, 1.50]}
+A chave do dicionário é o nome do produto e o valor é uma lista com a quantidade em estoque e o preço para venda do produto.
+Implemente um programa para controlar as vendas e o estoque da empresa. O programa deverá receber a quantidade a ser comprada e exibir o valor total da
+compra e, em seguida, dar baixa no estoque.
+No final, o programa deverá mostrar o estoque atualizado
+
+def total_venda (produto,quantidade):
+  if produto in estoque:
+    qtd_estoque,preco = estoque[produto]
+  if quantidade <= qtd_estoque:
+    valor_total = quantidade * preco
+
+    estoque [produto][0] -= quantidade
+    print(f'valor total: R$ {valor_total: .2f}')
+  else:
+    print ("Quantidade não disponivel em estoque") 
+
+total_venda("tomate", 150)
+total_venda("alface", 100)
+print("Estoque atualizado",estoque)
